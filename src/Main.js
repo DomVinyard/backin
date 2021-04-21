@@ -75,7 +75,7 @@ const Main = () => {
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <img height={32} width={32} src="icon.png" />
+                    <img alt="NewCo" height={32} width={32} src="icon.png" />
                   </a>
                 </div>
               </Sponsored>
