@@ -26,6 +26,8 @@ const Main = () => {
     body, html {
       margin: 0;
       padding: 0;
+      max-height: -webkit-fill-available;
+      overflow: hidden;
     }
     * {
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
@@ -165,15 +167,15 @@ const Wrapper = styled.div`
   text-align: center;
   padding: 0em;
   margin: 0;
-  height: 100vh;
   min-height: 100vh;
-  min-height: -webkit-fill-available; /* mobile viewport bug fix */
+  height: -webkit-fill-available;
   width: 100vw;
   justify-content: center;
   align-items: center;
   display: flex;
   background-size: cover;
   background-position: center center;
+  overflow: none;
 `;
 
 const Remaining = styled.div`
