@@ -24,6 +24,10 @@ const Main = () => {
       min-height: 100vh;
       min-height: -webkit-fill-available;
     }
+    * {
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+    }
   `;
 
   const calculateTimer = () => {
@@ -56,11 +60,13 @@ const Main = () => {
             </>
           ) : (
             <>
-              {buttons.map((button) => (
-                <a href={`/${button}`}>
-                  <button>{button} mins</button>
-                </a>
-              ))}
+              <Buttons>
+                {buttons.map((button) => (
+                  <a href={`/${button}`}>
+                    <Button>{button} mins</Button>
+                  </a>
+                ))}
+              </Buttons>
               <Sponsored>
                 <div>Sponsored by</div>
                 <div>
@@ -80,6 +86,15 @@ const Main = () => {
     </Wrapper>
   );
 };
+
+const Buttons = styled.div`
+  margin-top: 0.5rem;
+`;
+
+const Button = styled.button`
+  margin: 0 4px;
+  font-size: 1.1rem;
+`;
 
 const Sponsored = styled.div`
   margin-top: 4rem;
