@@ -66,8 +66,6 @@ const Main = () => {
   const buttons = [5, 10, 20, 30, 60];
   const darkMode = useDarkMode(false);
 
-  console.log({ darkMode });
-
   return (
     <>
       <Header>
