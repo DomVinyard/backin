@@ -86,9 +86,9 @@ const Main = () => {
                   <Remaining>{remaining}</Remaining>
                   <Buttons>
                     <span>
-                      <Button onClick={() => setIsComplete(true)}>
-                        Stop timer
-                      </Button>
+                      <a href="/">
+                        <Button>Stop timer</Button>
+                      </a>
                     </span>
                   </Buttons>
                 </>
@@ -96,7 +96,7 @@ const Main = () => {
                 <>
                   <Buttons>
                     {buttons.map((button) => (
-                      <a href={`/${button}`}>
+                      <a key={button} href={`/${button}`}>
                         <Button>{button} mins</Button>
                       </a>
                     ))}
