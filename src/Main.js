@@ -14,7 +14,8 @@ const msToHMSS = (ms) => {
 const Main = () => {
   const max = 999;
   const path = window.location.pathname.replace("/", "");
-  const lengthMins = isNumeric(path) ? Math.min(+path, max) : false;
+  const lengthMins =
+    isNumeric(path) && path >= 0.05 ? Math.min(+path, max) : false;
   const [remaining, setRemaining] = useState();
   const [isComplete, setIsComplete] = useState(false);
   const startAt = new Date();
