@@ -54,9 +54,11 @@ const Main = () => {
           {lengthMins ? (
             <>
               <Remaining>{remaining}</Remaining>
-              <a href="/">
-                <button>reset</button>
-              </a>
+              <Buttons>
+                <a href="/">
+                  <Button>reset</Button>
+                </a>
+              </Buttons>
             </>
           ) : (
             <>
