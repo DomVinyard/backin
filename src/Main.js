@@ -35,7 +35,7 @@ const Main = () => {
   useEffect(() => {
     calculateTimer();
     const interval = setInterval(calculateTimer, 250);
-    document.title = `Back in ${lengthMins}`;
+    document.title = `Back in ${lengthMins || ""}`;
     return () => clearInterval(interval);
   }, []);
 
