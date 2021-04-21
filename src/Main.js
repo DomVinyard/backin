@@ -66,6 +66,8 @@ const Main = () => {
   const buttons = [5, 10, 20, 30, 60];
   const darkMode = useDarkMode(false);
 
+  console.log({ darkMode });
+
   return (
     <>
       <Header>
@@ -144,6 +146,7 @@ const Button = styled.button`
   font-size: 1.1rem;
   padding: 6px 18px;
   border-radius: 12px;
+  border: none;
 `;
 
 const Sponsored = styled.div`
