@@ -8,10 +8,12 @@
     "bootstrap": "4.3.1",
     "dayjs": "1.10.4",
     "react": "16.8.0",
+    "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "16.8.0",
     "react-router-dom": "4.3.1",
     "react-scripts": "2.0.3",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {},
   "scripts": {

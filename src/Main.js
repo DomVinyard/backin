@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
+import DarkModeToggle from "react-dark-mode-toggle";
+import useDarkMode from "use-dark-mode";
 
 const isNumeric = (str) => !isNaN(str) && !isNaN(parseFloat(str));
 
@@ -19,6 +21,7 @@ const Main = () => {
   const [remaining, setRemaining] = useState();
   const [isComplete, setIsComplete] = useState(false);
   const startAt = new Date();
+  const [isDarkMode, setIsDarkMode] = useState(() => false);
 
   const GlobalStyle = createGlobalStyle`
     body, html {
@@ -28,6 +31,17 @@ const Main = () => {
     * {
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    font-weight: 300;
+    }
+    
+    .dark-mode {
+      background: black;
+   color: #fff;
+   button {
+   color: #fff;
+
+    background-color: #333;
+   }
+
     }
   `;
 
@@ -51,61 +65,86 @@ const Main = () => {
   }, []);
 
   const buttons = [5, 10, 20, 30, 60];
+  const darkMode = useDarkMode(false);
 
   return (
-    <Wrapper>
-      <BrowserRouter>
-        <div className="container">
-          <GlobalStyle whiteColor />
-          <BackIn>Back{isComplete ? " 🤟" : " in"}</BackIn>
-          {lengthMins && !isComplete ? (
-            <>
-              <Remaining>{remaining}</Remaining>
-              <Buttons>
-                <span>
-                  <Button onClick={() => setIsComplete(true)}>
-                    Resume early
-                  </Button>
-                </span>
-              </Buttons>
-            </>
-          ) : (
-            <>
-              <Buttons>
-                {buttons.map((button) => (
-                  <a href={`/${button}`}>
-                    <Button>{button} mins</Button>
-                  </a>
-                ))}
-              </Buttons>
-              <Sponsored>
-                <div>Sponsored by</div>
-                <div>
-                  <a
-                    href="https://newco.ooo"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <img alt="NewCo" height={32} width={32} src="icon.png" />
-                  </a>
-                </div>
-              </Sponsored>
-            </>
-          )}
-        </div>
-      </BrowserRouter>
-    </Wrapper>
+    <>
+      <Header>
+        <DarkModeToggle
+          onChange={darkMode.toggle}
+          checked={darkMode.value}
+          size={60}
+        />
+      </Header>
+      <Wrapper>
+        <BrowserRouter>
+          <>
+            <div className="container">
+              <GlobalStyle whiteColor />
+              <BackIn>Back{isComplete ? " 🤟" : " in"}</BackIn>
+              {lengthMins && !isComplete ? (
+                <>
+                  <Remaining>{remaining}</Remaining>
+                  <Buttons>
+                    <span>
+                      <Button onClick={() => setIsComplete(true)}>
+                        Come back now
+                      </Button>
+                    </span>
+                  </Buttons>
+                </>
+              ) : (
+                <>
+                  <Buttons>
+                    {buttons.map((button) => (
+                      <a href={`/${button}`}>
+                        <Button>{button} mins</Button>
+                      </a>
+                    ))}
+                  </Buttons>
+                  <Sponsored>
+                    <div>Sponsored by</div>
+                    <div>
+                      <a
+                        href="https://newco.ooo"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <img
+                          alt="NewCo"
+                          height={32}
+                          width={32}
+                          src="icon.png"
+                        />
+                      </a>
+                    </div>
+                  </Sponsored>
+                </>
+              )}
+            </div>
+          </>
+        </BrowserRouter>
+      </Wrapper>
+    </>
   );
 };
 
+const Header = styled.div`
+  position: fixed;
+  top: 8px;
+  right: 8px;
+`;
+
 const Buttons = styled.div`
   margin-top: 0.5rem;
-  line-height: 2rem;
+  line-height: 3rem;
 `;
 
 const Button = styled.button`
   margin: 0 4px;
   font-size: 1.1rem;
+  padding: 6px 18px;
+  border-radius: 12px;
 `;
 
 const Sponsored = styled.div`
