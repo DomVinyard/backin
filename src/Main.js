@@ -21,7 +21,6 @@ const Main = () => {
   const [remaining, setRemaining] = useState();
   const [isComplete, setIsComplete] = useState(false);
   const startAt = new Date();
-  const [isDarkMode, setIsDarkMode] = useState(() => false);
 
   const GlobalStyle = createGlobalStyle`
     body, html {
