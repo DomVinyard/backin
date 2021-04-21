@@ -5,24 +5,25 @@ import styled, { createGlobalStyle } from "styled-components";
 const isNumeric = (str) => !isNaN(str) && !isNaN(parseFloat(str));
 
 const msToHMSS = (ms) => {
-  let seconds = (ms / 1000) % 3600;
+  let seconds = ms / 1000;
   let minutes = parseInt(seconds / 60); // 60 seconds in 1 minute
   seconds = seconds % 60;
   return +minutes + ":" + `${Math.floor(seconds)}`.padStart(2, "0");
 };
 
 const Main = () => {
+  const max = 999;
   const path = window.location.pathname.replace("/", "");
-  const lengthMins = isNumeric(path) ? +path : false;
+  const lengthMins = isNumeric(path) ? Math.min(+path, max) : false;
   const [remaining, setRemaining] = useState();
+  const [isComplete, setIsComplete] = useState(false);
   const startAt = new Date();
+  const nowLabel = "Now";
 
   const GlobalStyle = createGlobalStyle`
     body, html {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      min-height: -webkit-fill-available;
     }
     * {
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
@@ -31,15 +32,21 @@ const Main = () => {
   `;
 
   const calculateTimer = () => {
+    if (isComplete || !lengthMins) return;
     const totalms = lengthMins * 60 * 1000;
     const elapsedms = new Date() - startAt;
-    setRemaining(msToHMSS(totalms - elapsedms));
+    if (elapsedms > totalms - 1000) {
+      document.title = `Back!`;
+      return setIsComplete(true);
+    }
+    const remaining = msToHMSS(totalms - elapsedms);
+    setRemaining(remaining);
+    document.title = `Back in ${remaining || ""}`;
   };
 
   useEffect(() => {
     calculateTimer();
     const interval = setInterval(calculateTimer, 250);
-    document.title = `Back in ${lengthMins || ""}`;
     return () => clearInterval(interval);
   }, []);
 
@@ -50,14 +57,16 @@ const Main = () => {
       <BrowserRouter>
         <div className="container">
           <GlobalStyle whiteColor />
-          <BackIn>Back in</BackIn>
-          {lengthMins ? (
+          <BackIn>Back{isComplete ? "!" : " in"}</BackIn>
+          {lengthMins && !isComplete ? (
             <>
               <Remaining>{remaining}</Remaining>
               <Buttons>
-                <a href="/">
-                  <Button>reset</Button>
-                </a>
+                <span>
+                  <a href="/">
+                    <Button>reset</Button>
+                  </a>
+                </span>
               </Buttons>
             </>
           ) : (
@@ -91,6 +100,7 @@ const Main = () => {
 
 const Buttons = styled.div`
   margin-top: 0.5rem;
+  line-height: 2rem;
 `;
 
 const Button = styled.button`
