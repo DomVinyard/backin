@@ -87,7 +87,7 @@ const Main = () => {
                   <Buttons>
                     <span>
                       <Button onClick={() => setIsComplete(true)}>
-                        Come back now
+                        Stop timer
                       </Button>
                     </span>
                   </Buttons>
