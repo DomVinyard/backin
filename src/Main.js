@@ -18,7 +18,6 @@ const Main = () => {
   const [remaining, setRemaining] = useState();
   const [isComplete, setIsComplete] = useState(false);
   const startAt = new Date();
-  const nowLabel = "Now";
 
   const GlobalStyle = createGlobalStyle`
     body, html {
