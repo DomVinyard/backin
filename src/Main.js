@@ -35,6 +35,9 @@ const Main = () => {
     }
    button {
     background-color: #ddd;
+    &:hover {
+      background-color: #ccc
+    }
    }
     
     .dark-mode {
@@ -44,6 +47,9 @@ const Main = () => {
    color: #fff;
 
     background-color: #333;
+    &:hover {
+      background-color: #222
+    }
    }
 
     }
