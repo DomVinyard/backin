@@ -57,15 +57,15 @@ const Main = () => {
       <BrowserRouter>
         <div className="container">
           <GlobalStyle whiteColor />
-          <BackIn>Back{isComplete ? "!" : " in"}</BackIn>
+          <BackIn>Back{isComplete ? " 🤟" : " in"}</BackIn>
           {lengthMins && !isComplete ? (
             <>
               <Remaining>{remaining}</Remaining>
               <Buttons>
                 <span>
-                  <a href="/">
-                    <Button>reset</Button>
-                  </a>
+                  <Button onClick={() => setIsComplete(true)}>
+                    Resume early
+                  </Button>
                 </span>
               </Buttons>
             </>
