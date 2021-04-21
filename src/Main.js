@@ -64,7 +64,11 @@ const Main = () => {
               <Sponsored>
                 <div>Sponsored by</div>
                 <div>
-                  <a href="https://newco.ooo" target="_blank">
+                  <a
+                    href="https://newco.ooo"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <img height={32} width={32} src="icon.png" />
                   </a>
                 </div>
