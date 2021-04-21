@@ -33,6 +33,9 @@ const Main = () => {
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    font-weight: 300;
     }
+   button {
+    background-color: #ddd;
+   }
     
     .dark-mode {
       background: black;
