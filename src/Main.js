@@ -22,7 +22,7 @@ const Main = () => {
   const lengthMins =
     isNumeric(path) && path >= 0.05
       ? Math.min(+path, max)
-      : url.includes("10mins") && !isComplete
+      : url.includes("10mins") && path !== "stop"
       ? 10
       : false;
   const startAt = new Date();
@@ -102,7 +102,7 @@ const Main = () => {
                   <Remaining>{remaining}</Remaining>
                   <Buttons>
                     <span>
-                      <a href="/">
+                      <a href="/stop">
                         <Button>Stop timer</Button>
                       </a>
                     </span>
