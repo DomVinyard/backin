@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import DarkModeToggle from "react-dark-mode-toggle";
 import useDarkMode from "use-dark-mode";
+import { Helmet } from "react-helmet";
 
 const isNumeric = (str) => !isNaN(str) && !isNaN(parseFloat(str));
 
