@@ -82,7 +82,7 @@ const Main = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const buttons = [3, 10, 15, 30, 60];
+  const buttons = [3, 5, 10, 30, 60];
   const darkMode = useDarkMode(false);
 
   return (
@@ -103,6 +103,19 @@ const Main = () => {
         />
       </Helmet>
       <Header>
+        <Sponsored>
+          <div style={{ color: "#aaa" }}>
+            Powered by{" "}
+            <a
+              href="https://newco.ooo"
+              rel="noopener noreferrer"
+              target="_blank"
+              style={{ color: "#aaa" }}
+            >
+              NewCo
+            </a>
+          </div>
+        </Sponsored>
         <DarkModeToggle
           onChange={darkMode.toggle}
           checked={darkMode.value}
@@ -135,23 +148,6 @@ const Main = () => {
                       </a>
                     ))}
                   </Buttons>
-                  <Sponsored>
-                    <div>Sponsored by</div>
-                    <div>
-                      <a
-                        href="https://newco.ooo"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        <img
-                          alt="NewCo"
-                          height={28}
-                          width={28}
-                          src={`newco_${darkMode.value ? "light" : "dark"}.png`}
-                        />
-                      </a>
-                    </div>
-                  </Sponsored>
                 </>
               )}
             </div>
@@ -166,6 +162,11 @@ const Header = styled.div`
   position: fixed;
   top: 8px;
   right: 8px;
+  left: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
 `;
 
 const Buttons = styled.div`
@@ -182,7 +183,6 @@ const Button = styled.button`
 `;
 
 const Sponsored = styled.div`
-  margin-top: 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
