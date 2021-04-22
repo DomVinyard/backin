@@ -84,6 +84,25 @@ const Main = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          {remaining
+            ? `Back in ${remaining}`
+            : url.includes("10mins")
+            ? "10 Mins"
+            : "Back In"}
+        </title>
+        <meta name="description" content="Take more screen breaks." />
+        <link
+          rel="canonical"
+          href={
+            url.includes("10mins")
+              ? `https://10mins.org${lengthMins ? `/${lengthMins}` : ""}`
+              : `https://backin.in${lengthMins ? `/${lengthMins}` : ""}`
+          }
+        />
+      </Helmet>
       <Header>
         <DarkModeToggle
           onChange={darkMode.toggle}
