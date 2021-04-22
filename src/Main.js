@@ -160,9 +160,10 @@ const Main = () => {
 
 const Header = styled.div`
   position: fixed;
-  top: 8px;
-  right: 8px;
-  left: 8px;
+  top: 5px;
+  padding: 3px;
+  right: 5px;
+  left: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
