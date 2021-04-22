@@ -153,9 +153,9 @@ const Main = () => {
                       >
                         <img
                           alt="NewCo"
-                          height={32}
-                          width={32}
-                          src="icon.png"
+                          height={28}
+                          width={28}
+                          src={`newco_${darkMode.value ? "light" : "dark"}.png`}
                         />
                       </a>
                     </div>
