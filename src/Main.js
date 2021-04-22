@@ -15,9 +15,14 @@ const msToHMSS = (ms) => {
 
 const Main = () => {
   const max = 999;
+  const url = window.location.hostname;
   const path = window.location.pathname.replace("/", "");
   const lengthMins =
-    isNumeric(path) && path >= 0.05 ? Math.min(+path, max) : false;
+    isNumeric(path) && path >= 0.05
+      ? Math.min(+path, max)
+      : url.includes("10mins")
+      ? 10
+      : false;
   const [remaining, setRemaining] = useState();
   const [isComplete, setIsComplete] = useState(false);
   const startAt = new Date();
