@@ -82,7 +82,7 @@ const Main = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const buttons = [3, 5, 10, 30, 60];
+  const buttons = [3, 5, 10];
   const darkMode = useDarkMode(false);
 
   return (
@@ -90,7 +90,6 @@ const Main = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Screen Break</title>
-        <meta name="description" content="Take more screen breaks." />
         <link
           rel="canonical"
           href={
