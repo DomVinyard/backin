@@ -68,12 +68,12 @@ const Main = () => {
     const totalms = lengthMins * 60 * 1000;
     const elapsedms = new Date() - startAt;
     if (elapsedms > totalms - 1000) {
-      document.title = `Back!`;
+      // document.title = `Back!`;
       return setIsComplete(true);
     }
     const remaining = msToHMSS(totalms - elapsedms);
     setRemaining(remaining);
-    document.title = `Back in ${remaining || ""}`;
+    // document.title = `Back in ${remaining || ""}`;
   };
 
   useEffect(() => {
@@ -89,15 +89,7 @@ const Main = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>
-          {remaining
-            ? `Back in ${remaining}`
-            : url.includes("10mins")
-            ? "10 Mins"
-            : url.includes("3mins")
-            ? "3 Mins"
-            : "Back In"}
-        </title>
+        <title>Screen Break</title>
         <meta name="description" content="Take more screen breaks." />
         <link
           rel="canonical"
