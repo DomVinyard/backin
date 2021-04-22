@@ -80,7 +80,7 @@ const Main = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const buttons = [5, 10, 20, 30, 60];
+  const buttons = [5, 10, 15, 30, 60];
   const darkMode = useDarkMode(false);
 
   return (
