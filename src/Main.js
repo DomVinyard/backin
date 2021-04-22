@@ -17,14 +17,14 @@ const Main = () => {
   const max = 999;
   const url = window.location.hostname;
   const path = window.location.pathname.replace("/", "");
+  const [remaining, setRemaining] = useState();
+  const [isComplete, setIsComplete] = useState(false);
   const lengthMins =
     isNumeric(path) && path >= 0.05
       ? Math.min(+path, max)
-      : url.includes("10mins")
+      : url.includes("10mins") && !isComplete
       ? 10
       : false;
-  const [remaining, setRemaining] = useState();
-  const [isComplete, setIsComplete] = useState(false);
   const startAt = new Date();
 
   const GlobalStyle = createGlobalStyle`
