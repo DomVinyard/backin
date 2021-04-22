@@ -25,6 +25,8 @@ const Main = () => {
       ? Math.min(+path, max)
       : url.includes("10mins") && path !== "stop"
       ? 10
+      : url.includes("3mins") && path !== "stop"
+      ? 3
       : false;
   const startAt = new Date();
 
@@ -92,13 +94,17 @@ const Main = () => {
             ? `Back in ${remaining}`
             : url.includes("10mins")
             ? "10 Mins"
+            : url.includes("3mins")
+            ? "3 Mins"
             : "Back In"}
         </title>
         <meta name="description" content="Take more screen breaks." />
         <link
           rel="canonical"
           href={
-            url.includes("10mins")
+            url.includes("3mins")
+              ? `https://3mins.org${lengthMins ? `/${lengthMins}` : ""}`
+              : url.includes("10mins")
               ? `https://10mins.org${lengthMins ? `/${lengthMins}` : ""}`
               : `https://backin.in${lengthMins ? `/${lengthMins}` : ""}`
           }
