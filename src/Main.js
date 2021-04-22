@@ -54,9 +54,9 @@ const Main = () => {
    button {
    color: #fff;
 
-    background-color: #333;
+    background-color: #222;
     &:hover {
-      background-color: #222
+      background-color: #111
     }
    }
 
@@ -104,13 +104,13 @@ const Main = () => {
       </Helmet>
       <Header>
         <Sponsored>
-          <div style={{ color: "#aaa" }}>
+          <div style={{ color: darkMode.value ? "#666" : "#aaa" }}>
             Powered by{" "}
             <a
               href="https://newco.ooo"
               rel="noopener noreferrer"
               target="_blank"
-              style={{ color: "#aaa" }}
+              style={{ color: darkMode.value ? "#666" : "#aaa" }}
             >
               NewCo
             </a>
