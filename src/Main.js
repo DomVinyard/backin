@@ -141,11 +141,11 @@ const Main = () => {
                 <>
                   <Buttons>
                     <a href={`https://3mins.org`}>
-                      <Button>3 mins</Button>
+                      <Button>☕️ 3 mins</Button>
                     </a>
 
                     <a href={`https://10mins.org`}>
-                      <Button>10 mins</Button>
+                      <Button>🥪 10 mins</Button>
                     </a>
                   </Buttons>
                 </>
