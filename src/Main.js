@@ -82,7 +82,6 @@ const Main = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const buttons = [3, 5, 10];
   const darkMode = useDarkMode(false);
 
   return (
@@ -141,11 +140,13 @@ const Main = () => {
               ) : (
                 <>
                   <Buttons>
-                    {buttons.map((button) => (
-                      <a key={button} href={`/${button}`}>
-                        <Button>{button} mins</Button>
-                      </a>
-                    ))}
+                    <a href={`https://3mins.org`}>
+                      <Button>3 mins</Button>
+                    </a>
+
+                    <a href={`https://10mins.org`}>
+                      <Button>10 mins</Button>
+                    </a>
                   </Buttons>
                 </>
               )}
