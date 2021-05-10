@@ -65,15 +65,15 @@ const Main = () => {
 
   const calculateTimer = () => {
     if (isComplete || !lengthMins) return;
+    document.title = `Screen Break | ${lengthMins}mins`;
     const totalms = lengthMins * 60 * 1000;
     const elapsedms = new Date() - startAt;
     if (elapsedms > totalms - 1000) {
-      // document.title = `Back!`;
+      document.title = `Screen Break`;
       return setIsComplete(true);
     }
     const remaining = msToHMSS(totalms - elapsedms);
     setRemaining(remaining);
-    // document.title = `Back in ${remaining || ""}`;
   };
 
   useEffect(() => {
